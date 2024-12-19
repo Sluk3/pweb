@@ -135,11 +135,15 @@ Le funzionalità opzionali sono state sviluppate da Luca Giulio Stabile.
    - Aggiunta/rimozione prodotti
    - Calcolo totale
    - Gestione quantità
+   - Finalizzazione ordine [in sviluppo]
 
-2. Area Download Gratuiti
+2. Area Download Gratuiti [in sviluppo]
    - Sezione dedicata ai contenuti gratuiti
    - Sistema di download per utenti registrati
-
+     
+### Funzionalità Future
+1. Area Download Gratuiti
+2. Differenziazione prodotto effettivo e preview audio, sia in frontend dashboard, sia in db.
 
 
 ## Configurazione del Database
@@ -266,7 +270,7 @@ Credenziali:
    - La password prima del cripting deve essere lunga tra 8 e 40 caratteri, deve contenere almeno una lettera maiuscola, deve contenere almeno una lettera minuscola, deve contenere almeno un numero, deve contenere almeno uno tra i caratteri speciali consentiti (!"#$%&()*+?@^_~).
 
 2. Product
-   - bpm deve essere un numero positivo quando specificato
+   - bpm deve essere un numero tra 60 e 250
    - num_sample e num_tracks devono essere positivi quando specificati
 
 3. List_Prices
@@ -291,6 +295,7 @@ Credenziali:
    - Ogni prodotto deve appartenere a una categoria valida (type)
    - I campi specifici (bpm, tonality, genre) sono obbligatori per i beat
    - Il campo num_sample è obbligatorio per sample pack e drum kit
+   - Il campo num_track è obbligatorio per mix&master e ghostproduction
 
 3. Gestione Ordini
    - Un ordine non confermato (confirmed=0) può essere modificato
@@ -302,7 +307,7 @@ Credenziali:
 - MySQL 8.x
 - HTML5
 - CSS3
-- JavaScript per la riproduzione audio
+- JavaScript per la riproduzione audio e alcune chiamate al db
 
 ## Sicurezza
 1. Gestione Accessi
