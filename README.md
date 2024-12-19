@@ -11,7 +11,6 @@
 4. [Configurazione del Database](#configurazione-del-Database)
 5. [Schema ER e Vincoli della Base di Dati](#schema-er)
 7. [Tecnologie Utilizzate](#tecnologie-utilizzate)
-8. [Sicurezza](#sicurezza)
 
 ## Introduzione
 Il progetto consiste nella realizzazione di una piattaforma web per un produttore musicale professionista. La piattaforma serve come vetrina professionale per il portfolio dell'artista e come e-commerce per la vendita di prodotti digitali come beat, sample pack, drum kit, plugin, servizi di mix & master e ghost production. Questa documentazione tecnica descrive in dettaglio l'architettura, le funzionalità, le tecnologie utilizzate e le modalità di utilizzo dell'applicativo.
@@ -264,6 +263,7 @@ Credenziali:
    - admin, authorized, blocked sono booleani (tinyint(1))
    - email deve essere un indirizzo valido
    - username deve essere unico
+   - La password prima del cripting deve essere lunga tra 8 e 40 caratteri, deve contenere almeno una lettera maiuscola, deve contenere almeno una lettera minuscola, deve contenere almeno un numero, deve contenere almeno uno tra i caratteri speciali consentiti (!"#$%&()*+?@^_~).
 
 2. Product
    - bpm deve essere un numero positivo quando specificato
