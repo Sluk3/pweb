@@ -8,8 +8,9 @@
 1. [Introduzione](#introduzione)
 2. [Dominio Applicativo](#dominio-applicativo)
 3. [Prodotti Offerti](#prodotti-offerti)
-4. [Configurazione del Database](#configurazione-del-Database)
-5. [Schema ER e Vincoli della Base di Dati](#schema-er)
+4. [Requisiti Funzionali](#Requisiti-Funzionali)
+5. [Configurazione del Database](#configurazione-del-Database)
+6. [Schema ER e Vincoli della Base di Dati](#schema-er)
 7. [Tecnologie Utilizzate](#tecnologie-utilizzate)
 
 ## Introduzione
@@ -101,7 +102,7 @@ Inoltre, è presente una sezione FAQ per rispondere alle domande più comuni deg
 ## Requisiti Funzionali
 
 ### Funzionalità Obbligatorie
-Le funzionalità obbligatorie sono state sviluppate da tutto il gruppo.
+**Le funzionalità obbligatorie sono state sviluppate da tutto il gruppo.**
 
 1. Landing Page e Portfolio
    - Sezione di presentazione del produttore
@@ -129,7 +130,7 @@ Le funzionalità obbligatorie sono state sviluppate da tutto il gruppo.
    - Informazioni legali e privacy
 
 ### Funzionalità Opzionali
-Le funzionalità opzionali sono state sviluppate da Luca Giulio Stabile.
+**Le funzionalità opzionali sono state sviluppate da Luca Giulio Stabile.**
 
 1. Sistema Carrello
    - Aggiunta/rimozione prodotti
