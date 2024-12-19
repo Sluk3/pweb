@@ -22,21 +22,28 @@ Il settore della produzione musicale moderna è fortemente digitalizzato, con un
 - Gestire le richieste di servizi come mixing e mastering
 - Costruire un brand personale nel settore musicale
 
-### Prodotti e Servizi Offerti
-1. Beat
-   - Composizioni musicali complete pronte per essere utilizzate
-   - Disponibili in diversi formati (WAV, MP3)
-   - Possibilità di licenze diverse (esempio: base, premium, esclusiva)
+## Prodotti Offerti
 
-2. Sample Pack
-   - Collezioni di suoni originali
-   - Utilizzabili per produzioni musicali
-   - Categorizzati per genere o tipo di suono
+### Tipi di Prodotti
 
-3. Servizi Audio
-   - Mixing: processo di bilanciamento e ottimizzazione delle tracce
-   - Mastering: finalizzazione professionale del brano
-   - Prezzi personalizzabili in base alla complessità del progetto
+1. **Beat/Instrumental**
+   - Una composizione solitamente venduta a cantanti o rapper per essere cantata.
+
+2. **Drum Kit**
+   - Un pacchetto digitale per produttori che contiene campioni di batteria o effetti.
+
+3. **Sample Pack**
+   - Un pacchetto digitale per produttori che contiene loop melodici.
+
+4. **Plugin**
+   - Un software utilizzato per la manipolazione o la generazione del suono.
+
+5. **Mix & Master**
+   - **Mixing**: Processo di combinazione di tutte le tracce individuali di una registrazione e regolazione dei loro livelli, panning e effetti.
+   - **Mastering**: Processo di preparazione del mix finale per la distribuzione.
+
+6. **Ghost Production**
+   - La produzione fantasma è quando un produttore crea una traccia musicale che viene accreditata a un altro artista o DJ invece che a se stesso.
 
 ### Utenti Target
 1. Artisti e Musicisti
@@ -100,29 +107,6 @@ Il settore della produzione musicale moderna è fortemente digitalizzato, con un
    - Sistema di download per utenti registrati
    - Rotazione periodica dei contenuti
 
-## Schema ER
-[Questa sezione verrà completata dopo l'accesso al file SQL nella repository]
-
-### Entità Principali
-1. Utenti
-2. Prodotti
-3. Ordini
-4. Downloads
-5. [Altre entità presenti nel database]
-
-## Vincoli della Base di Dati
-
-### Vincoli di Integrità
-1. Ogni prodotto deve avere un prezzo valido
-2. Ogni utente deve avere un email unica
-3. Gli ordini devono essere associati a utenti registrati
-4. I download gratuiti devono avere un periodo di disponibilità definito
-
-### Vincoli di Business
-1. Un utente non può acquistare lo stesso prodotto digitale più volte
-2. I prezzi dei servizi di mixing/mastering devono essere concordati individualmente
-3. I download gratuiti sono disponibili solo per utenti registrati
-4. Le preview audio devono essere in formato compresso e durata limitata
 
 ## Architettura del Sistema
 
@@ -131,36 +115,6 @@ Il settore della produzione musicale moderna è fortemente digitalizzato, con un
 - Backend: PHP
 - Database: MySQL
 - File System: Gestione file audio e download
-
-### Pattern Architetturali
-- MVC per la struttura generale dell'applicazione
-- Repository Pattern per l'accesso ai dati
-- Singleton per la gestione delle connessioni al database
-
-## Tecnologie Utilizzate
-- PHP 8.x
-- MySQL 8.x
-- HTML5
-- CSS3
-- JavaScript per la riproduzione audio
-- Git per il controllo versione
-
-## Sicurezza
-1. Gestione Accessi
-   - Autenticazione utenti
-   - Sessioni sicure
-   - Protezione area amministrativa
-
-2. Protezione Dati
-   - Crittografia password
-   - Validazione input
-   - Prevenzione SQL injection
-
-3. Protezione Contenuti
-   - Sistema di licenze
-   - Protezione file audio
-   - Download sicuri
-   - Watermark audio per le preview
 
 ## Schema ER
 
@@ -299,6 +253,29 @@ Il settore della produzione musicale moderna è fortemente digitalizzato, con un
    - Il campo num_sample è obbligatorio per sample pack e drum kit
 
 3. Gestione Ordini
-   - Un ordine non confermato (confirmed=0) può essere modificato
+   - Un ordine non confermato (confirmed=0) può essere modificato nel carrello
    - Un ordine confermato non può essere modificato
    - Il prezzo corrente (cur_price) viene fissato al momento dell'inserimento nel carrello
+     
+## Tecnologie Utilizzate
+- PHP 8.x
+- MySQL 8.x
+- HTML5
+- CSS3
+- JavaScript per la riproduzione audio
+
+## Sicurezza
+1. Gestione Accessi
+   - Autenticazione utenti
+   - Sessioni sicure
+   - Protezione area amministrativa
+
+2. Protezione Dati
+   - Crittografia password
+   - Validazione input
+   - Prevenzione SQL injection
+
+3. Protezione Contenuti
+   - Protezione file audio
+   - Download sicuri (non completo)
+
