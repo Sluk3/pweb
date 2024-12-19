@@ -21,15 +21,15 @@ La piattaforma è progettata per offrire un'esperienza utente fluida e intuitiva
 Il settore della produzione musicale moderna è fortemente digitalizzato, con un mercato in crescita per quanto riguarda la vendita di contenuti digitali come beat, sample pack e servizi di post-produzione. La piattaforma web sviluppata in questo progetto risponde a questa esigenza, offrendo agli utenti un'ampia gamma di prodotti e servizi digitali.
 
 ## Walkthrough dell'Applicativo
-Landing Page e Portfolio:
+### Landing Page e Portfolio:
 
 La landing page accoglie gli utenti con una presentazione professionale del produttore musicale. Include informazioni biografiche, una descrizione dei servizi offerti e collegamenti ai social media.
 La sezione portfolio mostra i lavori realizzati dal produttore, inclusi progetti musicali, collaborazioni e remix. Ogni progetto può essere accompagnato da una breve descrizione e da un player audio per l'ascolto dei sample.
-Sistema di Autenticazione:
+### Sistema di Autenticazione:
 
 Gli utenti possono registrarsi sulla piattaforma creando un account con email, username e password. Dopo aver effettuato la registrazione, possono accedere utilizzando le proprie credenziali.
 Una volta autenticati, gli utenti possono accedere a funzionalità esclusive come l'acquisto di prodotti, la gestione del profilo e l'accesso a contenuti gratuiti.
-Catalogo Prodotti Digitali:
+### Catalogo Prodotti Digitali:
 
 Il catalogo prodotti include una varietà di contenuti digitali suddivisi in diverse categorie:
 Beat/Instrumental: Composizioni musicali complete pronte per essere utilizzate in progetti musicali.
@@ -39,15 +39,15 @@ Plugin: Software per la manipolazione o la generazione del suono.
 Mix & Master: Servizi di mixing e mastering per la finalizzazione professionale dei brani.
 Ghost Production: Produzione musicale accreditata a un altro artista o DJ invece che al produttore originale.
 Ogni prodotto ha una pagina dettagliata con descrizione, prezzo, preview audio e opzioni di acquisto.
-Sistema di Prezzi e Licenze:
+### Sistema di Prezzi e Licenze:
 
 I prodotti digitali sono offerti a diversi livelli di prezzo e licenza. Gli utenti possono scegliere tra licenze base, premium ed esclusive, a seconda delle proprie esigenze.
 I prezzi sono chiaramente indicati per ogni prodotto, e gli utenti possono aggiungere i prodotti desiderati al carrello per procedere con l'acquisto.
-Carrello e Pagamenti:
+### Carrello e Pagamenti:
 
 Il sistema di carrello permette agli utenti di gestire i prodotti selezionati per l'acquisto. Possono aggiungere, rimuovere e modificare la quantità dei prodotti nel carrello.
 Una volta pronti per l'acquisto, gli utenti possono procedere al checkout, dove verranno richiesti i dettagli di pagamento. I metodi di pagamento sono sicuri e protetti, garantendo una transazione senza problemi.
-Area Amministrativa (Produttore):
+### Area Amministrativa (Produttore):
 
 L'area amministrativa è accessibile solo agli utenti con privilegi di amministratore. Da qui, il produttore può gestire tutti gli aspetti della piattaforma:
 Gestione Utenti: Visualizzazione e gestione degli utenti registrati, inclusa l'autorizzazione e il blocco degli account.
@@ -55,23 +55,10 @@ Gestione Prodotti: Aggiunta, aggiornamento e rimozione di prodotti digitali dal 
 Statistiche Vendite: Monitoraggio delle vendite dei prodotti e analisi delle performance.
 Gestione Ordini: Visualizzazione e gestione degli ordini effettuati dagli utenti.
 Upload Contenuti: Caricamento di nuovi file audio e contenuti digitali per i prodotti.
-Footer e Contatti:
+### Footer e Contatti:
 
 Il footer della piattaforma include collegamenti ai social media del produttore, informazioni legali e sulla privacy, e un modulo di contatto per richieste di supporto o informazioni.
 Inoltre, è presente una sezione FAQ per rispondere alle domande più comuni degli utenti.
-Utenti Target
-Artisti e Musicisti:
-
-In cerca di beat per i propri progetti
-Necessitano di servizi di mixing e mastering
-Produttori Musicali:
-
-Interessati all'acquisto di sample pack
-Potrebbero richiedere servizi di post-produzione
-Content Creator:
-
-Necessitano di musica per i propri contenuti
-Interessati principalmente ai beat
 
 ## Prodotti Offerti
 
