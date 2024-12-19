@@ -8,8 +8,8 @@
 1. [Introduzione](#introduzione)
 2. [Dominio Applicativo](#dominio-applicativo)
 3. [Prodotti Offerti](#prodotti-offerti)
-4. [Schema ER](#schema-er)
-5. [Vincoli della Base di Dati](#vincoli-della-base-di-dati)
+4. [Configurazione del Database](#configurazione-del-Database)
+5. [Schema ER e Vincoli della Base di Dati](#schema-er)
 7. [Tecnologie Utilizzate](#tecnologie-utilizzate)
 8. [Sicurezza](#sicurezza)
 
