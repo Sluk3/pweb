@@ -72,7 +72,7 @@ function login($conn, $user, $pwd)
             if (password_verify($pwd, $row['pwd'])) {
                 session_start();
                 $_SESSION['username'] = $user;
-                return 'ok'; // header(); redirect
+                return 'ok'; // Login riuscito
             } else {
                 return 'pwd';
             }
@@ -146,7 +146,7 @@ function spawnProd1($row, $type, $conn)
     echo '<div class="col">
     <div class="card h-130 h-lg-150">
                     <div class="thumbnail position-relative">
-                        <img src="./IMG/Immagine WhatsApp 2024-11-01 ore 19.35.54_0990ef6f.png" class="card-img-top img-thumbnail" alt="...">
+                        <img src="../IMG/Immagine WhatsApp 2024-11-01 ore 19.35.54_0990ef6f.png" class="card-img-top img-thumbnail" alt="...">
                             <div class="position-absolute top-50 start-50 translate-middle d-flex gap-3">
                             <button type="button" onclick="rewind' . $row['id'] . '()" class="btn btn-primary border-primary rounded-circle ">
                                 <i class="bi bi-skip-backward-fill fs-4"></i>
@@ -464,7 +464,7 @@ function spawnProd2($row, $type, $conn)
 {
     echo '<div class="col">
     <div class="card h-100 xl-h-130">
-                    <img src="./IMG/Immagine WhatsApp 2024-11-01 ore 19.35.54_0990ef6f.png" class="card-img-top img-thumbnail" alt="...">
+                    <img src="../IMG/Immagine WhatsApp 2024-11-01 ore 19.35.54_0990ef6f.png" class="card-img-top img-thumbnail" alt="...">
                     
                     
                     <div class="card-body">
@@ -661,19 +661,40 @@ function spawnProd2($row, $type, $conn)
     echo '                      <div class="mb-3">
                                     <div class="row gy-3">
                                         <div class="col-md-6">
-                                            <label for="filep" class="form-label">Upload a new file</label>
+                                            <label for="filep" class="form-label">Upload a new preview file:</label>
                                             <div class="input-group mb-3">
                                             
-                                                <input type="file" class="form-control form-control-lg" value="' . $row['audiopath'] . '" id="file_' . $row['id'] . '" accept="audio/*" aria-describedby="file" aria-label="Upload">
+                                                <input type="file" class="form-control form-control-lg" value="' . $row['audiopath'] . '" id="preview_' . $row['id'] . '" accept="audio/*" aria-describedby="file" aria-label="Upload">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                        <label for="filep" class="form-label">Current file: ' . $file . '</label>
+                                        <label for="filep" class="form-label">Current preview: ' . $file . '</label>
                                          <audio controls src="' . $row['audiopath'] . '"></audio>
                                         </div>
                                     </div>
                                 </div>
-                                
+                                ';
+
+    $productpath = explode("/", $row['productpath']);
+    $file = "No file selected!";
+    if ($productpath[0]) {
+        $file = $productpath[2];
+    }
+    echo '                      <div class="mb-3">
+                                    <div class="row gy-3">
+                                        <div class="col-md-6">
+                                            <label for="filep" class="form-label">Upload a new product file:</label>
+                                            <div class="input-group mb-3">
+                                            
+                                                <input type="file" class="form-control form-control-lg" value="' . $row['productpath'] . '" id="file_' . $row['id'] . '"  aria-describedby="file" aria-label="Upload">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <label for="filep" class="form-label">Current product: ' . $file . '</label>
+                                         <audio controls src="' . $row['productpath'] . '"></audio>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                 <div class="mb-3">
                                     <div class="row gy-3">
@@ -757,7 +778,7 @@ function spawnProd3($row, $type, $conn)
     echo '<div class="col">
     <div class="card h-130 h-lg-150">
                     <div class="thumbnail position-relative">
-                        <img src="./IMG/Immagine WhatsApp 2024-11-01 ore 19.35.54_0990ef6f.png" class="card-img-top img-thumbnail" alt="...">
+                        <img src="../IMG/Immagine WhatsApp 2024-11-01 ore 19.35.54_0990ef6f.png" class="card-img-top img-thumbnail" alt="...">
                             <div class="position-absolute top-50 start-50 translate-middle d-flex gap-3">
                             <button type="button" onclick="rewind' . $row['id'] . '()" class="btn btn-primary border-primary rounded-circle ">
                                 <i class="bi bi-skip-backward-fill fs-4"></i>
@@ -848,7 +869,7 @@ function spawnProd3($row, $type, $conn)
                         <div class="d-grid"><!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#' . $row['id'] . 'details">
                             <i class="bi bi-zoom-in"></i> Details</button>
-                            <button type="button"  download="' . $row['audiopath'] . '" class="btn btn-outline-primary">Download <i class="bi bi-download"></i></button>
+                            <a type="button" download href="' . $row['productpath'] . '" class="btn btn-outline-primary">Download <i class="bi bi-download"></i></a>
                         </div>
                         
                         
@@ -1060,7 +1081,7 @@ function spawnProd3($row, $type, $conn)
                                             <h2 class="tracking-widest"> € ' . $row['price'] . '</h2>
                                         </div>
                             <div class="modal-footer">
-                                    <a type="button" href="' . $row['audiopath'] . '" download="' . $row['audiopath'] . '" class="btn btn-outline-primary">Download <i class="bi bi-download"></i></a>
+                                    <a type="button"  download href="' . $row['productpath'] . '"  class="btn btn-outline-primary">Download <i class="bi bi-download"></i></a>
                             </div>
                             
                         </div>
@@ -1107,11 +1128,13 @@ LIMIT 1;
                     $result = $stmt->get_result();
 
                     // Salva il risultato come array in sessione
-                    $_SESSION['cart'] = $result->fetch_all(MYSQLI_ASSOC);
+                    if ($result->num_rows > 0) {
+                        $_SESSION['cart'] = $result->fetch_all(MYSQLI_ASSOC);
+                    }
                 }
+                $stmt->close();
             }
         }
-        $stmt->close();
     } else {
         error_log('cart already loaded');
     }
@@ -1120,22 +1143,29 @@ function displayCart()
 {
 
     $totprice = 0;
-    if (isset($_SESSION['cart'])) {
-        echo '<div class="container">';
-        foreach ($_SESSION['cart'] as $row) {
-            cartItem($row);
-            $totprice += $row['price'] * $row['quantity'];
-        }
-        echo '
+    if (!isset($_SESSION['cart'])) {
+        if (count($_SESSION['cart']) > 0) {
+            echo '<div class="container">';
+            foreach ($_SESSION['cart'] as $row) {
+                cartItem($row);
+                $totprice += $row['price'] * $row['quantity'];
+            }
+            echo '
                             <hr>
                             <div class="container d-flex justify-content-end">
                                 <h2>Total price: €' . number_format($totprice, 2) . '</h2>
             
                             </div>
                             <div class="container d-grid mt-2">
-                            <button type="button" id="pay" class="btn btn-primary" onclick="" disabled>Place Order</button>
+                            <button type="button" id="pay" class="btn btn-primary" onclick="addTocart(\'\',\'checkout\')">Place Order</button>
                             </div>
                         </div>';
+        } else {
+            echo '<div class="container text-center">
+            <h1 class="text-center text-primary">Your cart is empty!</h1>
+            <h3 class="text-center">Let\'s go to the <a class="text-secondary" href="./products.php">shop</a> to add some products!</h3>
+        </div>';
+        }
     }
 }
 function cartItem($row)
@@ -1144,7 +1174,7 @@ function cartItem($row)
                 <div class="card mb-3" style="max-height: 130px, overflow: hidden;">
                     <div class="row g-0">
                         <div class="col-4 d-flex  align-items-start">
-                            <img src="./IMG/Immagine WhatsApp 2024-11-01 ore 19.35.54_0990ef6f.jpg" class="m-2 img-fluid rounded-start " alt="...">
+                            <img src="../IMG/Immagine WhatsApp 2024-11-01 ore 19.35.54_0990ef6f.jpg" class="m-2 img-fluid rounded-start " alt="...">
                         </div>
                         <div class="col-8">
                             <div class="card-body">

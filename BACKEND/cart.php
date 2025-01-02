@@ -98,7 +98,33 @@ switch ($data['action']) {
 
 
         break;
+    case 'checkout':
+        $query = "UPDATE order_head SET confirmed = 1 WHERE id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $_SESSION['orid']);
+        if ($stmt->execute()) {
+            $stmt->close();
+            foreach ($_SESSION['cart'] as $item) {
+                $query = "UPDATE order_detail od SET od.cur_price = (
+                SELECT pp.price FROM list_prices pp WHERE pp.prod_id = od.prod_id AND pp.date = (
+                    SELECT MAX(sub_pp.date) FROM list_prices sub_pp WHERE sub_pp.prod_id = od.prod_id AND sub_pp.date <= CURDATE()))
+            WHERE od.prod_id = ?; 
+";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("s", $item['id']);
+                if ($stmt->execute()) {
+                    $stmt->close();
+                    unset($_SESSION['cart'], $_SESSION['orid']);
+                    loadCart($conn, 'refresh');
+                    echo json_encode(['success' => true]);
+                }
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Error during the checkout']);
+        }
+        break;
+
     default:
-        echo json_encode(['success' => false, 'message' => 'Azione non valida']);
+        echo json_encode(['success' => false, 'message' => 'Action not found']);
         break;
 }

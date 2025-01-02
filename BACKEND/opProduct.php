@@ -31,9 +31,21 @@ if (isset($_FILES['audiopath'])) {
     $dest_path = $uploadFileDir . $fileName;
 
     if (move_uploaded_file($fileTmpPath, $dest_path)) {
-        $data['audiopath'] = substr($dest_path, 1); // Puoi salvare il percorso o altre info del file
+        $data['audiopath'] = $dest_path; // Puoi salvare il percorso o altre info del file
     } else {
         $data['audiopath'] = null; // Gestisci l'errore in caso di fallimento del caricamento
+    }
+}
+if (isset($_FILES['productpath'])) {
+    $fileTmpPath = $_FILES['productpath']['tmp_name'];
+    $fileName = $_FILES['productpath']['name'];
+    $uploadFileDir = '../PRODUCTS/';
+    $dest_path = $uploadFileDir . $fileName;
+
+    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+        $data['productpath'] = $dest_path; // Puoi salvare il percorso o altre info del file
+    } else {
+        $data['productpath'] = null; // Gestisci l'errore in caso di fallimento del caricamento
     }
 }
 
